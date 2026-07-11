@@ -34,6 +34,40 @@ val {chiSq, df} = Popgen.hardyWeinbergChiSq {obs=(25, 50, 25)}
 val {p'=newP, seed'=s} = Popgen.wrightFisher {p=0.5, pop2N=200, seed=12345}
 ```
 
+## Example
+
+`make example` builds and runs [`examples/demo.sml`](examples/demo.sml), which
+computes allele frequencies, expected Hardy-Weinberg genotype counts, a
+chi-square goodness-of-fit test, Fst, a five-generation Wright-Fisher drift
+simulation from a fixed seed, and linkage disequilibrium for fixed inputs
+(output is byte-identical under MLton and Poly/ML):
+
+```
+Population genetics worked example
+
+Allele frequencies from genotype counts (AA=30, AB=40, BB=30):
+  p = 0.5000   q = 0.5000
+
+Expected Hardy-Weinberg genotype counts (n=100):
+  E[AA] = 25.0000   E[AB] = 50.0000   E[BB] = 25.0000
+
+Hardy-Weinberg chi-square goodness of fit (obs = 30,40,30):
+  chiSq = 4.0000   df = 1
+
+Fst (hT=0.5, hS=0.3):
+  Fst = 0.4000
+
+Wright-Fisher drift, p0=0.5, 2N=20, seed=12345, 5 generations:
+  p' = 0.4500   seed' = 24224
+  p' = 0.4000   seed' = 29426
+  p' = 0.5000   seed' = 19571
+  p' = 0.6000   seed' = 32745
+  p' = 0.5000   seed' = 27958
+
+Linkage disequilibrium (pAB=0.3, pA=0.5, pB=0.5):
+  D = 0.0500   D' = 0.2000   r2 = 0.0400
+```
+
 ## Scope and limitations
 
 - Covers allele/genotype frequencies, Hardy-Weinberg test, Fst, Wright-Fisher drift, and LD (D, D', r²).
