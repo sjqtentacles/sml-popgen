@@ -1,5 +1,7 @@
 # sml-popgen
 
+[![CI](https://github.com/sjqtentacles/sml-popgen/actions/workflows/ci.yml/badge.svg)](https://github.com/sjqtentacles/sml-popgen/actions/workflows/ci.yml)
+
 Zero-dependency Standard ML library for population genetics calculations.
 
 ## API
